@@ -1,2 +1,5 @@
 #!/bin/bash
-gcc -c $CFILE
+CFILE="main.c" # replace with the actual name of your C file
+
+# Compile the C file but do not link
+gcc -c $CFILE -o ${CFILE%.c}.o
