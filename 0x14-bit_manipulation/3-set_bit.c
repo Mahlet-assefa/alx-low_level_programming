@@ -13,7 +13,8 @@ int set_bit(unsigned long int *n, unsigned int index)
 	if (index > 64)
 		return (-1);
 
-	for (k = 1; index > 0; index--, k *= 2);		;
+	for (k = 1; index > 0; index--, k *= 2)
+		;
 	*n += k;
 
 	return (1);
