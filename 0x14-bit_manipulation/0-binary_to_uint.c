@@ -1,30 +1,27 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * binary_to_uint - convert a binary num to an unsigned int
- * @b: char string
- * Return: converted decimal num or 0 if there is an unconvertable char
- */
+* binary_to_uint - converts a binary number to unsigned int
+*
+* @b: string containing the binary number
+*
+* Return: the decimal number
+*/
+
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int total, power;
-	int len;
+	int i;
+	unsigned int decimal = 0;
 
 	if (b == NULL)
 		return (0);
 
-	for (len = 0; b[len]; len++)
+	for (i = 0; b[i] != '\0'; ++i)
 	{
-		if (b[len] != '0' && b[len] != '1')
+		if (b[i] != '0' && b[i] != '1')
 			return (0);
+		decimal = 2 * decimal + (b[i] - '0');
 	}
 
-	for (power = 1, total = 0, len--; len >= 0; len--, power *= 2)
-	{
-		if (b[len] == '1')
-			total += power;
-	}
-
-	return (total);
+	return (decimal);
 }
